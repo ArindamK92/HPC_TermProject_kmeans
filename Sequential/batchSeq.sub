@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -J Project_Job
+#SBATCH -o Project2-%j.out
+#SBATCH --nodes=1
+#SBATCH --ntasks=64
+#SBATCH --time=00:30:00
+
+
+echo "start"
+g++ -o3 -o op_kmean_base main.cpp
+g++ -o3 -o op_kmean_reg register_test.cpp
+g++ -o3 -o op_kmean_regBlock register_test_blockwise.cpp
+
+echo "./op_kmean_base 33554432 32 16 5" >> Result_seq.txt
+./op_kmean_base 33554432 32 16 5 >> Result_seq.txt
+
+echo "./op_kmean_reg 33554432 32 16 5" >> Result_seq.txt
+./op_kmean_reg 33554432 32 16 5 >> Result_seq.txt
+
+echo "./op_kmean_regBlock 33554432 32 16 5" >> Result_seq.txt
+./op_kmean_regBlock 33554432 32 16 5 >> Result_seq.txt

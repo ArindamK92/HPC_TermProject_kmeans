@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH -J Assignment2_Job
+#SBATCH -o Assignment2-%j.out
+#SBATCH --nodes=8
+#SBATCH --ntasks=512
+#SBATCH --time=00:30:00
+
+
+echo "start"
+module load openmpi/4.0.3/gnu/9.2.0
+
+echo "mpirun -np 512 op_kmeans_MPI 8388608 32 16 5" >> Result_4_Strong.txt
+mpirun -np 512 op_kmeans_MPI 8388608 32 16 5 >> Result_4_Strong.txt
+
+echo "completed"

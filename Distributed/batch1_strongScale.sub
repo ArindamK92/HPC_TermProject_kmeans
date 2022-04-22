@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH -J Project_Job
+#SBATCH -o Project2-%j.out
+#SBATCH --nodes=1
+#SBATCH --ntasks=64
+#SBATCH --time=00:30:00
+
+
+echo "start"
+module load openmpi/4.0.3/gnu/9.2.0
+
+echo "mpirun -np 4 op_kmeans_MPI 8388608 32 16 5" >> Result_1_Strong.txt
+mpirun -np 4 op_kmeans_MPI 8388608 32 16 5 >> Result_1_Strong.txt
+
+echo "mpirun -np 8 op_kmeans_MPI 8388608 32 16 5" >> Result_1_Strong.txt
+mpirun -np 8 op_kmeans_MPI 8388608 32 16 5 >> Result_1_Strong.txt
+
+echo "mpirun -np 16 op_kmeans_MPI 8388608 32 16 5" >> Result_1_Strong.txt
+mpirun -np 16 op_kmeans_MPI 8388608 32 16 5 >> Result_1_Strong.txt
+
+echo "mpirun -np 32 op_kmeans_MPI 8388608 32 16 5" >> Result_1_Strong.txt
+mpirun -np 32 op_kmeans_MPI 8388608 32 16 5 >> Result_1_Strong.txt
+
+echo "mpirun -np 64 op_kmeans_MPI 8388608 32 16 5" >> Result_1_Strong.txt
+mpirun -np 64 op_kmeans_MPI 8388608 32 16 5 >> Result_1_Strong.txt
+
+echo "completed"

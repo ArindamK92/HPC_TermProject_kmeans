@@ -1,0 +1,18 @@
+mpirun -np 4 op_kmeans_MPI 262144 32 16 5
+n 262144 m: 32 k: 16
+Total elapsed time:   0.268383
+mpirun -np 8 op_kmeans_MPI 524288 32 16 5
+n 524288 m: 32 k: 16
+Total elapsed time:   0.427063
+mpirun -np 16 op_kmeans_MPI 1048576 32 16 5
+n 1048576 m: 32 k: 16
+Total elapsed time:   0.730517
+mpirun -np 32 op_kmeans_MPI 2097152 32 16 5
+n 2097152 m: 32 k: 16
+Total elapsed time:   1.919941
+mpirun -np 64 op_kmeans_MPI 4194304 32 16 5
+n 4194304 m: 32 k: 16
+Total elapsed time:   3.755197
+mpirun -np 128 op_kmeans_MPI 8388608 32 16 5
+n 8388608 m: 32 k: 16
+Total elapsed time:   6.167191
